@@ -5,11 +5,11 @@ Enable or disable Red Hat repositories using "subscription-manager"
 
 Role Variables
 --------------
-
+```
 rhsub_repos:
   - name: rhel-7-server-extras-rpms     # wildcard or repo name
     state: enable                       # enable or disable      
-
+```
 
 Example Playbook
 ----------------
