@@ -13,10 +13,18 @@ rhsub_repos:
 
 Example Playbook
 ----------------
-
+```
     - hosts: rhel_servers
       roles:
          - { role: mcgill.subscription-manager }
+```
+
+TODO
+----
+
+ * The tasks need to be refactored to test if a channel is enabled or disabled
+   before running the appropriate command.  As it currently stands, it will
+   always "change", though with no negative impact on the server.
 
 License
 -------
