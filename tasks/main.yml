@@ -1,0 +1,18 @@
+---
+# First, make sure that this is a RHEL server.
+- name: Check that this is a RHEL Server
+  assert:
+    that: "ansible_distribution == 'RedHat'"
+  tags:
+    - rhsub
+
+# Insert a test to make sure that we are registered to Satellite/RHN
+
+# Enable or disable requested repositories
+- name: Enable or disable requested repositories
+  command: subscription-manager repos --{{ item.state }} {{ item.name }}
+  with_items: "{{ rhsub_repos }}"
+  when: rhsub_repos is defined
+  tags:
+    - rhsub
+    - rhsub_repos 
